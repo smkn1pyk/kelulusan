@@ -87,7 +87,7 @@
 				<h1>SMKN 1 PAYAKUMBUH</h1>
 			</div>
 			<?php
-			$tanggal_buka = date('Y-m-d H:i' , strtotime('2023-05-05 22:00'));
+			$tanggal_buka = date('Y-m-d H:i' , strtotime('2023-05-05 14:00'));
 			if(date('Y-m-d H:i')>=$tanggal_buka){
 				?>
 				<form hx-post="app/proses_login" hx-target="#result">
