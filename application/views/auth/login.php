@@ -111,17 +111,17 @@
 				$jam = date('H:i a', strtotime($tanggal_buka));
 				?>
 				<div class="pengumuman">
-					<p>Pengumuman Kelulusan akan dibuka pada: </p>
+					<p>Pengumuman: </p>
 					<table>
 						<tr>
-							<td>Tanggal</td>
+							<td>Pengumuman Kelulusan</td>
 							<td>:</td>
-							<td><?= $tgl ?></td>
+							<td><?= $tgl ?> Pukul <?= $jam ?></td>
 						</tr>
 						<tr>
-							<td>Jam</td>
+							<td>Penerbitan Surat Keterangan Lulus (SKL)</td>
 							<td>:</td>
-							<td><?= $jam ?></td>
+							<td>08 Mei 2023</td>
 						</tr>
 					</table>
 					<p>Silahkan lakukan refresh halaman jika tanggal dan jam sudah sesuai</p>
