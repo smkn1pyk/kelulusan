@@ -65,8 +65,9 @@
 		.pengumuman{
 			font-family: monospace;
 			border: 1px solid #ddd;
+			border-radius: 5px;
 			padding: 15px;
-			background-color: lightgrey;
+			background-color: #eee;
 			text-align: justify;
 		}
 
