@@ -124,7 +124,7 @@
 							<td>08 Mei 2023</td>
 						</tr>
 					</table>
-					<p>Silahkan lakukan refresh halaman jika tanggal dan jam sudah sesuai</p>
+					<p>Silahkan lakukan refresh halaman jika tanggal dan jam sudah sesuai dengan jadwal yang sudah ditetapkan</p>
 				</div>
 				<?php
 			}
