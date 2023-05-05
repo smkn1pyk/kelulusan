@@ -85,7 +85,7 @@
 		<div class="login">
 			<div class="header">
 				<img src="<?= base_url('assets/images/logo.png') ?>" width="30%">
-				<h1>SMKN 1 PAYAKUMBUH</h1>
+				<h1><i class="fas fa-globe"></i> SMKN 1 PAYAKUMBUH</h1>
 			</div>
 			<?php
 			$tanggal_buka = date('Y-m-d H:i' , strtotime('2023-05-05 22:00'));
