@@ -1,0 +1,98 @@
+@media only screen and (max-width: 600px) {
+	html, body {
+		width: 100%;
+	}
+	
+}
+/*@page {
+	size: A4;
+	margin: 20mm 20mm 20mm 30mm;
+	border: 1px solid #ddd;
+	}*/
+	@media print {
+		html, body {
+			width: 210mm;
+			height: 297mm;
+			font-size: 12pt;
+		}
+		.tombol{display: none;}
+		header { display : none; }
+	}
+
+	button {
+		padding: 15px;
+		font-weight: bold;
+		margin-bottom: 15mm; 
+	}
+
+	.container{
+		width: 210mm;
+		height: 297mm;
+		margin: auto;
+	}
+
+	.m-0{margin: 0;}
+
+	.header{
+		clear: both;
+		width: 210mm;
+	}
+	.header-kiri{
+		width: 30mm;
+		float: left;
+	}
+	.header-tengah{
+		width: 150mm;
+		float: left;
+		text-align: center;
+	}
+
+	.header-tengah p{
+		font-size: 9pt;
+	}
+	.header-kanan{
+		width: 30mm;
+		float: right;
+	}
+
+	.header-kanan img{margin-top: -10px;}
+	.judul{
+		clear: both;
+		border-top: 3px solid #333;
+		width: 210mm;
+		margin-bottom: 10mm;
+		text-align: center;
+	}
+
+	.judul h3{margin-bottom: 0;}
+
+	.isi{
+		width: 210mm;
+		text-align: justify;
+		line-height: 1.8;
+	}
+
+	.isi table{
+		line-height: 1.8;
+		font-size: 12pt;
+	}
+
+	.ttd{
+		clear: both;
+		width: 210mm;
+	}
+	.ttd-kanan{
+		/*border: 1px solid #ddd;*/
+		width: 55mm;
+		float: right;
+	}
+
+	.ttd-kanan img{
+		margin-top: -15px;
+		margin-left: -85px;
+		z-index: 3;
+	}
+
+	.ctt{
+		clear: both;
+	}
