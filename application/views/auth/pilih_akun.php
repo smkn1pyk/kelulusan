@@ -5,7 +5,7 @@
 	<meta name="viewport" content="initial-scale=1">
 	<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
-	<link rel="icon" type="images/png" href="<?= base_url('assets/images/favicon.png') ?>">
+	<link rel="icon" type="images/png" href="<?= base_url('assets/images/logo.png') ?>">
 	<style type="text/css">
 		body{
 			font-family: Arial;
