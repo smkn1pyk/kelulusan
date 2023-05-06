@@ -55,7 +55,10 @@ class App extends CI_Controller {
 
 	private function _tendik()
 	{
+		$data = [
 
+		];
+		$this->load->view('pages/guru/pengembangan', $data, FALSE);
 	}
 
 	private function _guru()
@@ -64,6 +67,11 @@ class App extends CI_Controller {
 
 		];
 		$this->load->view('pages/guru/pengembangan', $data, FALSE);
+	}
+
+	function dashboard()
+	{
+		
 	}
 
 	private function _lulusan()

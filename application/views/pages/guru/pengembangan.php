@@ -14,6 +14,7 @@
 </head>
 <body>
 	<div class="container">
+		<h3 class="text-center"><?= $this->session->userdata('nama'); ?></h3>
 		<div class="quote">
 			<blockquote>Mohon maaf, aplikasi ini masih dalam masa pengembangan, silahkan kembali beberapa saat lagi<br>Tekan <a href='<?= base_url('auth/keluar') ?>'>Disini</a> untuk keluar";</blockquote>
 		</div>

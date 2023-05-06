@@ -25,6 +25,8 @@
 
 		.header h1, .header p{
 			margin: 0;
+			/*background-color: #fff;
+			padding: 2px;*/
 		}
 
 		.header h1{
@@ -32,6 +34,7 @@
 		}
 
 		.header p{
+			font-family: monospace;
 			font-size: 12px;
 		}
 
