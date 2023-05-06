@@ -4,7 +4,7 @@
 	<title><?= $title ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://unpkg.com/htmx.org@1.9.2"></script>
-	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/lulusan.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/lulusan.css') ?>">
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 	<link rel="icon" type="images/png" href="<?= base_url('assets/images/favicon.png') ?>">
 </head>
