@@ -23,8 +23,8 @@ date_default_timezone_set("Asia/Jakarta");
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://dapodik.smkn1payakumbuh.sch.id/';
-
+// $config['base_url'] = 'https://localhost/kelulusan';
+$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/kelulusan';
 /*
 |--------------------------------------------------------------------------
 | Index File

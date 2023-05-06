@@ -125,7 +125,7 @@
 			</div>
 			<?php
 		}else{
-			?> <div style="background-color: red;padding: 10px; color: #000;"> Kombinasi E-mail dan Kata Sandi tidak cocok ! </div> <?php
+			?> <div style="background-color: lightblue;padding: 10px; color: #000;"> <h3 style="text-align: center;"><?= $this->session->userdata('nama'); ?></h3> <br>Mohon maaf, anda tidak dapat mengakses halaman ini,<br> Data anda tidak ditemukan pada data kelulusan ! <br>Tekan <a href="auth/keluar">Disini</a> untuk keluar </div> <?php
 		}
 		?>
 	</body>

@@ -36,13 +36,34 @@ class App extends CI_Controller {
 
 		if($this->session->userdata('akun')){
 			if($this->session->userdata('username')&&$this->session->userdata('password')){
-				$this->_lulusan();
+				if($this->session->userdata('ptk_id')){
+					if($this->session->userdata('jenis_ptk_id')==11){
+						$this->_tendik();
+					}else{
+						$this->_guru();
+					}
+				}else{
+					$this->_lulusan();
+				}
 			}else{
 				$this->pilih_akun();
 			}
 		}else{
 			$this->login();
 		}
+	}
+
+	private function _tendik()
+	{
+
+	}
+
+	private function _guru()
+	{
+		$data = [
+
+		];
+		$this->load->view('pages/guru/pengembangan', $data, FALSE);
 	}
 
 	private function _lulusan()
@@ -55,11 +76,6 @@ class App extends CI_Controller {
 			'status' => $this->db->get_where('data_lulusan', ['peserta_didik_id'=>$this->session->userdata('peserta_didik_id'), 'semester_id'=>$this->session->userdata('semester_id')])->row_array(),
 		];
 		$this->load->view('lulusan', $data, FALSE);
-	}
-
-	function tanggal_buka()
-	{
-		
 	}
 
 	function jumlah_siswa()
@@ -75,75 +91,51 @@ class App extends CI_Controller {
 	{
 		$data = [
 			'title' => "Log-In",
+			'page' => 'app/halaman_login',
+		];
+		$this->load->view('auth/template', $data, FALSE);
+	}
+
+	function halaman_login()
+	{
+		$semester_id = $this->db->query("SELECT DISTINCT(semester_id) from getsekolah")->result();
+		if($semester_id){
+			$semester_id = $semester_id;
+		}else{
+			if(date('m')>6){
+				$sm = date('Y').'1';
+			}else
+			if(date('m')<7){
+				$sm = date('Y') - 1;
+				$sm = $sm.'2';
+			}
+			$semester_id[] = json_decode(json_encode(['semester_id'=>$sm]));
+		}
+		$data = [
+			'title' => "Log-In",
+			'semester_id' => $semester_id,
 		];
 		$this->load->view('auth/login', $data, FALSE);
 	}
 
-	function proses_login()
-	{
-		$this->form_validation->set_rules('username', 'E-mail', 'trim|required');
-		$this->form_validation->set_rules('password', 'Kata Sandi', 'trim|required');
-		if ($this->form_validation->run() == FALSE) {
-			?> <div style="background-color: red;padding: 10px; color: #eee;"> <?= validation_errors() ?> </div> <?php
-		} else {
-			$cekUser = $this->db->get_where('getpengguna', ['username'=>$this->input->post('username')])->result();
-			if($cekUser){
-				foreach ($cekUser as $key => $value) {
-					$pass = $value->password;
-					if(password_verify($this->input->post('password'), $pass)){
-						$array = array(
-							'akun' => $cekUser,
-						);
-						$this->session->set_userdata( $array );
-						echo '<script>window.location.href = "app";</script>';
-					}else{
-						?> <div style="background-color: yellow;padding: 10px; color: #aaa;"> Kombinasi E-mail dan Kata Sandi tidak cocok ! </div> <?php
-					}
-				}
-			}else{
-				?> <div style="background-color: yellow;padding: 10px; color: #aaa;"> User dengan email: <?= $this->input->post('username') ?> tidak ditemukan </div> <?php
-			}
-		}
-	}
+	
 
 	function pilih_akun()
 	{
 		$data = [
 			'title' => 'Pilih Hak Akses',
+			'page' => 'app/halaman_pilih_akun',
+		];
+		$this->load->view('auth/template', $data, FALSE);
+	}
+
+	function halaman_pilih_akun()
+	{
+		$data = [
+
 			'akun' => $this->session->userdata('akun'),
 		];
 		$this->load->view('auth/pilih_akun', $data, FALSE);
 	}
 
-	function proses_pilih_akun()
-	{
-		if($this->input->post('akun')){
-			$decrypt = json_decode($this->encryption->decrypt($this->input->post('akun')), true);
-			if(is_array($decrypt)){
-				if($decrypt['peran_id_str']=='Peserta Didik'){
-					$this->db->order_by('semester_id', 'desc');
-					$cekPd = $this->db->get_where('getpesertadidik', ['peserta_didik_id'=>$decrypt['peserta_didik_id']])->row_array();
-					if($cekPd){
-						if($cekPd['tingkat_pendidikan_id']==12){
-							$merge = array_merge($cekPd, $decrypt);
-							$this->session->set_userdata( $merge );
-							echo '<script>window.location.href = "app";</script>';
-						}else{
-							?> <div style="background-color: yellow;padding: 10px; color: #aaa;"> Mohon maaf, Anda belum dapat mengakses halaman ini<br>Aplikasi ini masih dalam masa pengembangan </div> <?php
-						}
-					}
-				}else{
-					?> <div style="background-color: yellow;padding: 10px; color: #aaa;"> Mohon maaf, Anda belum dapat mengakses halaman ini<br>Aplikasi ini masih dalam masa pengembangan </div> <?php
-				}
-			}
-		}else{
-			?> <div style="background-color: yellow;padding: 10px; color: #aaa;"> Mohon maaf, terjadi kesalahan sitem, silahkan hubungi Administrator </div> <?php
-		}
-	}
-
-	function keluar()
-	{
-		$this->session->sess_destroy();
-		echo '<script>window.location.href = "app";</script>';
-	}
 }
