@@ -1,10 +1,6 @@
 
 <div class="container">
 	<div class="login">
-		<div class="header">
-			<img src="<?= base_url('assets/images/logo.png') ?>" width="30%">
-			<h1><i class="fas fa-user"></i> <?= $this->session->userdata('akun')[0]['nama']; ?></h1>
-		</div>
 		<form hx-post="auth/pilih_akun" hx-target="#result">
 			<div class="form-group mb-3">
 				<label>Pilih Hak Akses</label>

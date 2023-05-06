@@ -10,6 +10,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/png" href="<?= base_url('assets/images/logo.png') ?>">
 	<style type="text/css">
 		body{
 			font-family: Arial;
@@ -17,8 +18,23 @@
 			background-size: 230px;
 		}
 		.header{
+			/*background-color: #fff;*/
 			text-align: center;
+			/*border-bottom: 1px solid #ddd;*/
 		}
+
+		.header h1, .header p{
+			margin: 0;
+		}
+
+		.header h1{
+			font-size: 22px;
+		}
+
+		.header p{
+			font-size: 12px;
+		}
+
 		.container{
 			margin-top: 30px;
 		}
@@ -50,6 +66,13 @@
 	</style>
 </head>
 <body>
+	<div class="header">
+		<img src="<?= base_url('assets/images/logo.png') ?>" width="100px">
+		<h1>SMK NEGERI 1 PAYAKUMBUH</h1>
+		<p>Jalan ASOKA no.6 - Telp/Fax (0752) 92047</p>
+		<p>E-Mail : smkn1pyk@gmail.com - WEB : https://smkn1payakumbuh.sch.id - Kode Pos : 26225</p>
+	</div>
+
 	<div class="container" hx-get="<?= $page ?>" hx-target="#data" hx-trigger="load">
 		<div id="data"></div>
 	</div>

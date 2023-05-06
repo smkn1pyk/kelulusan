@@ -15,8 +15,8 @@
 			?>
 			<div class="header">
 				<div class="tombol" style="float: right;width: 200mm; text-align: right;">
-					<!-- <button onclick="print();"><i class="fas fa-print"></i> Print</button> -->
-					<button hx-post="app/keluar"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+					<button onclick="print();"><i class="fas fa-print"></i> Print</button>
+					<a href="<?= base_url('auth/keluar') ?>"><i class="fas fa-sign-out-alt"></i> Keluar</a>
 				</div>
 				<div class="header-kiri">
 					<img src="<?= base_url('assets/images/logo-prov.png') ?>" width="110px">
@@ -36,14 +36,14 @@
 
 			<div class="judul">
 				<div>
-					<!-- <h3>SURAT KETERANGAN LULUS</h3> -->
-					<H3>PENGUMUMAN KELULUSAN</H3>
+					<h3>SURAT KETERANGAN LULUS</h3>
+					<!-- <H3>PENGUMUMAN KELULUSAN</H3> -->
 				</div>
-				<!-- <h4 class="m-0">NO: <?= $lulusan['nomor_surat'] ?></h4> -->
+				<h4 class="m-0">NO: <?= $lulusan['nomor_surat'] ?></h4>
 			</div>
 
 			<div class="isi">
-				<p>Berdasarkan <!-- Surat --> Keputusan Kepala SMK Negeri 1 Payakumbuh<!--  No. <?= $lulusan['nomor_surat_keputusan'] ?> -->, tentang Kriteria Kelulusan dari Satuan Pendidikan dan hasil Rapat Dewan Guru tanggal: <?= date('d-M-Y', strtotime($lulusan['tanggal_keputusan'])) ?>, dengan  ini Kepala SMK  Negeri 1 Payakumbuh  menerangkan:</p>
+				<p>Berdasarkan Surat Keputusan Kepala SMK Negeri 1 Payakumbuh No. <?= $lulusan['nomor_surat_keputusan'] ?>, tentang Kriteria Kelulusan dari Satuan Pendidikan dan hasil Rapat Dewan Guru tanggal: <?= date('d-M-Y', strtotime($lulusan['tanggal_keputusan'])) ?>, dengan  ini Kepala SMK  Negeri 1 Payakumbuh  menerangkan:</p>
 				<table class="table-sm table-responsive mb-4">
 					<tr>
 						<td>Nama</td>
@@ -109,16 +109,16 @@
 						}
 						?>
 					</b> dari SMKN Negeri 1 Payakumbuh Tahun Pelajaran <?= date('Y')-1 ?>/<?= date('Y') ?></p>
-					<!-- <p>Demikianlah surat keterangan Lulus ini dikeluarkan untuk digunakan sesuai keperluan</p> -->
+					<p>Demikianlah surat keterangan Lulus ini dikeluarkan untuk digunakan sesuai keperluan</p>
 				</div>
-				<!-- <div class="ttd">
+				<div class="ttd">
 					<div class="ttd-kanan">
 						Dikeluarkan di : Payakumbuh<br>
 						Pada Tanggal   : <?= date('d-M-Y', strtotime($lulusan['tanggal_surat'])) ?><br>
 						Kepala<br>
 						<img src="<?= base_url('assets/images/ttd.png') ?>" width="270px" class='ml-0'>
 					</div>
-				</div> -->
+				</div>
 				<div class="ctt">
 					Ctt: Mohon dikonfirmasi ke Operator Kesiswaan<br>apabila ada penulisan data yang salah sebelum penulisan ijazah.
 				</div>

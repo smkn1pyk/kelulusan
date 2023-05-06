@@ -1,18 +1,10 @@
 
 <div class="container">
 	<div class="login">
-		<div class="header">
-			<img src="<?= base_url('assets/images/logo.png') ?>" width="30%">
-			<h1><i class="fas fa-globe"></i> SMKN 1 PAYAKUMBUH</h1>
-		</div>
 		<?php
-		$tanggal_buka = date('Y-m-d H:i' , strtotime('2023-05-06 22:00'));
-		if(date('Y-m-d H:i')>=$tanggal_buka){
-
-		}else{
-			$tgl = date('d-m-Y', strtotime($tanggal_buka));
-			$jam = date('H:i a', strtotime($tanggal_buka));
-		}
+		$tanggal_buka = date('Y-m-d H:i' , strtotime('2023-05-05 22:00'));
+		$tgl = date('d-m-Y', strtotime($tanggal_buka));
+		$jam = date('H:i a', strtotime($tanggal_buka));
 		?>
 		<div class="row">
 			<div class="col-md mb-3">
