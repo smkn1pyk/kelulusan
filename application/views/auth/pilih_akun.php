@@ -1,6 +1,7 @@
 
 <div class="container">
 	<div class="login">
+		<h3 class="text-center"><i class="fas fa-user"></i> <?= $akun[0]['nama'] ?></h3>
 		<form hx-post="auth/pilih_akun" hx-target="#result">
 			<div class="form-group mb-3">
 				<label>Pilih Hak Akses</label>
