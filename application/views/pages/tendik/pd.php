@@ -2,6 +2,9 @@
 <?php
 if($rombel){
 	?>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		Launch demo modal
+	</button>
 	<div>
 		<form class="form-inline" hx-get="<?= base_url('data_utama/data_peserta_didik') ?>" hx-target="#data">
 			<div class="form-group m-1">
@@ -72,7 +75,7 @@ if($rombel){
 						if($pengguna){
 							?>
 							<td><i class="fas fa-user"></i> <?= $pengguna['username'] ?></td>
-							<td><i class="fas fa-key"></i> <?= $value->tanggal_lahir ?></td>
+							<td><button class="btn btn-sm" data-target="#exampleModal" data-toggle="modal" hx-post="<?= base_url('form/get/tendik/reset_password_pd/'.$value->peserta_didik_id) ?>" hx-target=".modal-body"><i class="fas fa-key"></i></button> <?= $value->tanggal_lahir ?></td>
 							<?php
 						}else{
 							?>
