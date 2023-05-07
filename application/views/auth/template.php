@@ -43,7 +43,7 @@
 		}
 		.login{
 			background-color: #fff;
-			width: 800px;
+			width: 1000px;
 			margin: auto;
 			padding: 20px;
 			border: 1px solid #ddd;

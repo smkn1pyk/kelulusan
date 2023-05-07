@@ -8,22 +8,17 @@
 		?>
 		<div class="row">
 			<div class="col-md mb-3">
-				<div class="bg-light p-3 border rounded">
-					<h3>Pengumuman: </h3>
-					<table class="table">
-						<tr>
-							<td>Pengumuman Kelulusan</td>
-							<td>:</td>
-							<td><?= $tgl ?> Pukul <?= $jam ?></td>
-						</tr>
-						<tr>
-							<td>Penerbitan Surat Keterangan Lulus (SKL)</td>
-							<td>:</td>
-							<td>08 Mei 2023</td>
-						</tr>
-					</table>
-					<p>Silahkan lakukan refresh halaman jika tanggal dan jam sudah sesuai dengan jadwal yang sudah ditetapkan</p>
-				</div>
+				<h3>Informasi: </h3>
+				<?php foreach ($informasi as $key => $value): ?>
+					<div class="card mb-3">
+						<div class="card-header">
+							<?= $value->judul ?>
+						</div>
+						<div class="card-body">
+							<?= htmlspecialchars_decode($value->isi) ?>
+						</div>
+					</div>
+				<?php endforeach ?>
 			</div>
 			<div class="col-md mb-3">
 				<div class="bg-light p-3 border rounded">

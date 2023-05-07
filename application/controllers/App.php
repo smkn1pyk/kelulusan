@@ -70,20 +70,6 @@ class App extends CI_Controller {
 		$this->load->view('pages/guru/pengembangan', $data, FALSE);
 	}
 
-	function dashboard()
-	{
-		echo "Halaman Dashboard";
-	}
-
-	private function _peserta_didik()
-	{
-		$data = [
-			'titile' => "Peserta Didik",
-			'page' => base_url('data_utama/data_peserta_didik'),
-		];
-		$this->load->view('template', $data, FALSE);
-	}
-
 	function data_peserta_didik()
 	{
 		$rombel = $this->db->query('SELECT DISTINCT(rombongan_belajar_id), nama_rombel from getpesertadidik where semester_id="'.$this->session->userdata('semester_id').'" and tingkat_pendidikan_id="12" order by nama_rombel asc')->result();
@@ -101,7 +87,7 @@ class App extends CI_Controller {
 				$pd = $this->db->get_where('getpesertadidik', ['tingkat_pendidikan_id'=>'12', 'semester_id'=>$this->session->userdata('semester_id'), 'rombongan_belajar_id'=>$this->input->get('rombel'), 'status'=>1])->result();
 			}else{
 				$this->db->order_by('nama_rombel', 'asc');
-				$pd = $this->db->get_where('getpesertadidik', ['tingkat_pendidikan_id'=>'12', 'semester_id'=>$this->session->userdata('semester_id'), 'status'=>1])->result();
+				$pd = $this->db->get_where('getpesertadidik', ['tingkat_pendidikan_id'=>'12', 'semester_id'=>$this->session->userdata('semester_id'), 'status'=>1], 50)->result();
 			}
 		}
 
@@ -145,20 +131,23 @@ class App extends CI_Controller {
 	function halaman_login()
 	{
 		$semester_id = $this->db->query("SELECT DISTINCT(semester_id) from getsekolah")->result();
+		if(date('m')>6){
+			$sm = date('Y').'1';
+		}else
+		if(date('m')<7){
+			$sm = date('Y') - 1;
+			$sm = $sm.'2';
+		}
 		if($semester_id){
 			$semester_id = $semester_id;
 		}else{
-			if(date('m')>6){
-				$sm = date('Y').'1';
-			}else
-			if(date('m')<7){
-				$sm = date('Y') - 1;
-				$sm = $sm.'2';
-			}
 			$semester_id[] = json_decode(json_encode(['semester_id'=>$sm]));
 		}
+		$this->db->order_by('id', 'desc');
+		$informasi = $this->db->get_where('lulusan_informasi', ['semester_id'=>$sm])->result();
 		$data = [
 			'title' => "Log-In",
+			'informasi' => $informasi,
 			'semester_id' => $semester_id,
 		];
 		$this->load->view('auth/login', $data, FALSE);

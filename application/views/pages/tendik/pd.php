@@ -2,34 +2,38 @@
 <?php
 if($rombel){
 	?>
-	<div>
-		<div class="form-inline">
-			<div class="form-group m-1">
-				<select class="form-control-sm" name="rombel" hx-get="<?= base_url('app/data_peserta_didik') ?>" hx-target="#data">
-					<option value="">Rombel</option>
-					<?php foreach ($rombel as $key => $value): ?>
-						<?php
-						if($this->input->get('rombel')){
-							if($value->rombongan_belajar_id==$this->input->get('rombel')){
-								?> <option value="<?= $value->rombongan_belajar_id ?>" selected><?= $value->nama_rombel ?></option> <?php
+	<div class="row">
+		<div class="col-md">
+			<div class="float-md-left">
+				<div class="m-1">
+					<button class="btn btn-primary btn-sm" data-target="#exampleModal" data-toggle="modal" hx-post="<?= base_url('form/get/tendik/tambah_data_lulusan/') ?>" hx-target=".modal-body"><i class="fas fa-plus"></i></button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md">
+			<div class="form-inline float-right">
+				<div class="m-1">
+					<select class="form-control-sm" name="rombel" hx-get="<?= base_url('app/data_peserta_didik') ?>" hx-target="#data">
+						<option value="">Rombel</option>
+						<?php foreach ($rombel as $key => $value): ?>
+							<?php
+							if($this->input->get('rombel')){
+								if($value->rombongan_belajar_id==$this->input->get('rombel')){
+									?> <option value="<?= $value->rombongan_belajar_id ?>" selected><?= $value->nama_rombel ?></option> <?php
+								}else{
+									?> <option value="<?= $value->rombongan_belajar_id ?>"><?= $value->nama_rombel ?></option> <?php
+								}
 							}else{
 								?> <option value="<?= $value->rombongan_belajar_id ?>"><?= $value->nama_rombel ?></option> <?php
 							}
-						}else{
-							?> <option value="<?= $value->rombongan_belajar_id ?>"><?= $value->nama_rombel ?></option> <?php
-						}
-						?>
-					<?php endforeach ?>
-				</select>
-			</div>
-			<!-- <form class="form-inline" > -->
-				<div class="form-group m-1">
+							?>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="m-1">
 					<input type="text" name="pencarian" class="form-control-sm" placeholder="Pencarian" hx-get="<?= base_url('app/data_peserta_didik') ?>" hx-target="#data" autocomplete="off" autofocus>
 				</div>
-				<!-- <div class="form-group m-1">
-					<button class="btn btn-sm btn-primary">Pilih</button>
-				</div>
-			</form> -->
+			</div>
 		</div>
 	</div>
 	<?php

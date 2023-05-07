@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/admin.css') ?>">
 	<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="<?= base_url('assets/images/logo.png') ?>">
 </head>
 <body>
@@ -31,7 +32,7 @@
 						<span class="ml-2">Products</span>
 					</a> -->
 
-					<!-- <button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#sale-collapse">
+				<!-- 	<button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#sale-collapse">
 						<div>
 							<span class="bi bi-cart-dash"></span>
 							<span class="ml-2">Data Master</span>
@@ -43,21 +44,21 @@
 							<a href="<?= base_url('data_utama/peserta_didik') ?>" class="list-group-item list-group-item-action border-0 pl-5">Peserta Didik</a>
 							<a href="#" class="list-group-item list-group-item-action border-0 pl-5">Sale Orders</a>
 						</div>
-					</div>
+					</div> -->
 
 					<button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#purchase-collapse">
 						<div>
 							<span class="bi bi-cart-plus"></span>
-							<span class="ml-2">Purchase</span>
+							<span class="ml-2">Data Lulusan</span>
 						</div>
 						<span class="bi bi-chevron-down small"></span>
 					</button>
 					<div class="collapse" id="purchase-collapse" data-parent="#sidebar">
 						<div class="list-group">
-							<a href="#" class="list-group-item list-group-item-action border-0 pl-5">Sellers</a>
+							<a href="<?= base_url('lulusan/informasi') ?>" class="list-group-item list-group-item-action border-0 pl-5">Informasi</a>
 							<a href="#" class="list-group-item list-group-item-action border-0 pl-5">Purchase Orders</a>
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 			<!-- overlay to close sidebar on small screens -->
@@ -91,7 +92,7 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -110,5 +111,6 @@
 	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </body>
 </html>
