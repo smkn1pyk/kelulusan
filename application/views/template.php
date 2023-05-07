@@ -23,7 +23,7 @@
 			<div class="col-md-3 col-lg-2 px-0 position-fixed h-100 bg-white shadow-sm sidebar" id="sidebar">
 				<h1 class="bi bi-bootstrap text-primary d-flex my-4 justify-content-center"></h1>
 				<div class="list-group rounded-0">
-					<a href="#" class="list-group-item list-group-item-action active border-0 d-flex align-items-center">
+					<a href="<?= base_url() ?>" class="list-group-item list-group-item-action active border-0 d-flex align-items-center">
 						<span class="bi bi-border-all"></span>
 						<span class="ml-2">Dashboard</span>
 					</a>
@@ -56,7 +56,7 @@
 					<div class="collapse" id="purchase-collapse" data-parent="#sidebar">
 						<div class="list-group">
 							<a href="<?= base_url('lulusan/informasi') ?>" class="list-group-item list-group-item-action border-0 pl-5">Informasi</a>
-							<a href="#" class="list-group-item list-group-item-action border-0 pl-5">Purchase Orders</a>
+							<!-- <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Purchase Orders</a> -->
 						</div>
 					</div>
 				</div>
