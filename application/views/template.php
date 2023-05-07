@@ -31,7 +31,7 @@
 						<span class="ml-2">Products</span>
 					</a> -->
 
-					<button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#sale-collapse">
+					<!-- <button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#sale-collapse">
 						<div>
 							<span class="bi bi-cart-dash"></span>
 							<span class="ml-2">Data Master</span>
@@ -57,7 +57,7 @@
 							<a href="#" class="list-group-item list-group-item-action border-0 pl-5">Sellers</a>
 							<a href="#" class="list-group-item list-group-item-action border-0 pl-5">Purchase Orders</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<!-- overlay to close sidebar on small screens -->
@@ -101,10 +101,6 @@
 				</div>
 				<div class="modal-body">
 					...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 		</div>
