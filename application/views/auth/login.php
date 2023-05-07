@@ -8,7 +8,7 @@
 		?>
 		<div class="row">
 			<div class="col-md mb-3">
-				<h3>Informasi: </h3>
+				<!-- <h4>Informasi: </h4> -->
 				<?php foreach ($informasi as $key => $value): ?>
 					<div class="card mb-3">
 						<div class="card-header">
