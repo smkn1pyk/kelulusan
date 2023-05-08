@@ -6,8 +6,8 @@
 		$tgl = date('d-m-Y', strtotime($tanggal_buka));
 		$jam = date('H:i a', strtotime($tanggal_buka));
 		?>
-		<div class="row">
-			<div class="col-md mb-3">
+		<div class="row bg-secondary">
+			<div class="col-md mb-3 mt-3">
 				<!-- <h4>Informasi: </h4> -->
 				<?php foreach ($informasi as $key => $value): ?>
 					<div class="card mb-3">
@@ -20,7 +20,7 @@
 					</div>
 				<?php endforeach ?>
 			</div>
-			<div class="col-md mb-3">
+			<div class="col-md mb-3 mt-3">
 				<div class="bg-light p-3 border rounded">
 					<h3>Form Login</h3>
 					<form hx-post="auth/login" hx-target="#result">

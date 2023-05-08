@@ -48,7 +48,7 @@
 					<tr>
 						<td>Nama</td>
 						<td>:</td>
-						<td><?= $siswa['nama'] ?></td>
+						<td><?= strval($siswa['nama']) ?></td>
 					</tr>
 					<tr>
 						<td>Tempat/ Tgl. Lahir</td>
