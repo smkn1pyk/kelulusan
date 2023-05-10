@@ -5,33 +5,43 @@ class Api extends RestController {
 
 	function getsekolah_post()
 	{
-
 		$slice = array_slice($_POST, 1);
 		$decrypt = json_decode(base64_decode($slice['getsekolah']), true);
 		if(is_array($decrypt)){
 			foreach ($decrypt as $key => $value) {
-				foreach ($value as $key1 => $value1) {
-					foreach ($value1 as $key2 => $value2) {
-						$cekData = $this->db->get_where('getsekolah', $value2)->result();
-						if($cekData){
-							$this->db->where(['sekolah_id'=>$value2['sekolah_id'], 'semester_id'=>$value2['semester_id']]);
-							$this->db->update('getsekolah', $value2);
+				$cekData = $this->db->get_where('getsekolah', ['sekolah_id'=>$value['sekolah_id'], 'semester_id'=>$value['semester_id']])->result_array();
+				if($cekData){
+					foreach ($cekData as $key1 => $value1) {
+						$this->db->where($value1);
+						$this->db->update('getsekolah', $value);
+						if($this->db->affected_rows()>>0){
+							$berhasil_tambah[] = 1;
 						}else{
-							$this->db->insert('getsekolah', $value2);
+							$gagal_tambah[] = 0;
 						}
 					}
-					
+				}else{
+					$this->db->insert('getsekolah', $value);
+					if($this->db->affected_rows()>>0){
+						$berhasil_tambah[] = 1;
+					}else{
+						$gagal_tambah[] = 0;
+					}
 				}
 			}
+			$response = [
+				'status' => true,
+				'message' => 'Success',
+				'data' => $this->db->last_query(),
+			];
+			$this->response($response);
 		}else{
-			echo "Bukan Array";
+			$response = [
+				'status' => false,
+				'message' => 'Bukan Array',
+			];
+			$this->response($response);
 		}
-		$response = [
-			'status' => true,
-			'message' => 'Success',
-			'data' => $this->db->last_query(),
-		];
-		$this->response($response);
 	}
 
 
