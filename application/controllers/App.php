@@ -130,7 +130,7 @@ class App extends CI_Controller {
 
 	function halaman_login()
 	{
-		$semester_id = $this->db->query("SELECT DISTINCT(semester_id) from getsekolah")->result();
+		$semester_id = $this->db->query("SELECT DISTINCT(semester_id) from getsekolah order by semester_id desc")->result();
 		if(date('m')>6){
 			$sm = date('Y').'1';
 		}else
