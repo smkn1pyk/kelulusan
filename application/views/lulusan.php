@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="isi">
-				<p>Berdasarkan Surat Keputusan Kepala SMK Negeri 1 Payakumbuh No. <?= $lulusan['nomor_surat_keputusan'] ?>, tentang Kriteria Kelulusan dari Satuan Pendidikan dan hasil Rapat Dewan Guru tanggal: <?= date('d-M-Y', strtotime($lulusan['tanggal_keputusan'])) ?>, dengan  ini Kepala SMK  Negeri 1 Payakumbuh  menerangkan:</p>
+				<p>Berdasarkan Surat Keputusan Kepala SMK Negeri 1 Payakumbuh No. <?= $lulusan['nomor_surat_penetapan'] ?>, tentang Kriteria Kelulusan dari Satuan Pendidikan dan hasil Rapat Dewan Guru tanggal: <?= date('d-M-Y', strtotime($lulusan['tanggal_penetapan'])) ?>, dengan  ini Kepala SMK  Negeri 1 Payakumbuh  menerangkan:</p>
 				<table class="table-sm table-responsive mb-4">
 					<tr>
 						<td>Nama</td>
