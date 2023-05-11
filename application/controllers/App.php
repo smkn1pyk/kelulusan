@@ -12,14 +12,11 @@ class App extends CI_Controller {
 	{
 		if($this->session->userdata('akun')){
 			if($this->session->userdata('username')&&$this->session->userdata('password')){
-				if($this->session->userdata('ptk_id')){
-					if($this->session->userdata('jenis_ptk_id')==11){
-						$this->_tendik();
-					}else{
-						$this->_guru();
-					}
-				}else{
+				if($this->session->userdata('peserta_didik_id')){
 					$this->_lulusan();
+				}else{
+					$this->session->sess_destroy();
+					redirect('.','refresh');
 				}
 			}else{
 				$this->pilih_akun();
@@ -27,51 +24,6 @@ class App extends CI_Controller {
 		}else{
 			$this->login();
 		}
-	}
-
-	private function _tendik()
-	{
-		$data = [
-			'title' => "Tendik",
-			'page' => 'app/data_peserta_didik',
-		];
-		$this->load->view('template', $data, FALSE);
-	}
-
-	private function _guru()
-	{
-		$data = [
-
-		];
-		$this->load->view('pages/guru/pengembangan', $data, FALSE);
-	}
-
-	function data_peserta_didik()
-	{
-		$rombel = $this->db->query('SELECT DISTINCT(rombongan_belajar_id), nama_rombel from getpesertadidik where semester_id="'.$this->session->userdata('semester_id').'" and tingkat_pendidikan_id="12" order by nama_rombel asc')->result();
-
-		if($this->input->get('pencarian')){
-			$pencarian = $this->input->get('pencarian');
-			$this->db->like('nama', $pencarian, 'BOTH');
-			$this->db->where(['tingkat_pendidikan_id'=>'12', 'semester_id'=>$this->session->userdata('semester_id'), 'status'=>1]);
-			$this->db->or_like('nisn', $pencarian, 'BOTH');
-			$this->db->where(['tingkat_pendidikan_id'=>'12', 'semester_id'=>$this->session->userdata('semester_id'), 'status'=>1]);
-			$pd = $this->db->get('getpesertadidik')->result();
-		}else{
-			if($this->input->get('rombel')){
-				$this->db->order_by('nama', 'asc');
-				$pd = $this->db->get_where('getpesertadidik', ['tingkat_pendidikan_id'=>'12', 'semester_id'=>$this->session->userdata('semester_id'), 'rombongan_belajar_id'=>$this->input->get('rombel'), 'status'=>1])->result();
-			}else{
-				$this->db->order_by('nama_rombel', 'asc');
-				$pd = $this->db->get_where('getpesertadidik', ['tingkat_pendidikan_id'=>'12', 'semester_id'=>$this->session->userdata('semester_id'), 'status'=>1], 50)->result();
-			}
-		}
-
-		$data = [
-			'rombel' => $rombel,
-			'pd' => $pd,
-		];
-		$this->load->view('pages/tendik/pd', $data, FALSE);
 	}
 
 	private function _lulusan()
@@ -84,15 +36,6 @@ class App extends CI_Controller {
 			'status' => $this->db->get_where('lulusan_data', ['peserta_didik_id'=>$this->session->userdata('peserta_didik_id'), 'semester_id'=>$this->session->userdata('semester_id')])->row_array(),
 		];
 		$this->load->view('lulusan', $data, FALSE);
-	}
-
-	function jumlah_siswa()
-	{
-		$rombel = $this->db->query("SELECT DISTINCT(nama_rombel), rombongan_belajar_id, tingkat_pendidikan_id from getpesertadidik where semester_id='20222' order by nama_rombel asc")->result();
-		$data = [
-			'rombel' => $rombel,
-		];
-		$this->load->view('jumlah_siswa', $data, FALSE);
 	}
 
 	function login()
@@ -127,9 +70,7 @@ class App extends CI_Controller {
 			'semester_id' => $semester_id,
 		];
 		$this->load->view('auth/login', $data, FALSE);
-	}
-
-	
+	}	
 
 	function pilih_akun()
 	{

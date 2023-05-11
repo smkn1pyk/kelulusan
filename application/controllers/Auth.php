@@ -49,6 +49,9 @@ class Auth extends CI_Controller {
 		if($this->input->post('akun')){
 			$decrypt = json_decode($this->encryption->decrypt($this->input->post('akun')), true);
 			if(is_array($decrypt)){
+				echo "<pre>";
+				print_r ($decrypt);
+				echo "</pre>";
 				if($decrypt['peserta_didik_id']){
 					$this->db->order_by('semester_id', 'desc');
 					$cekPd = $this->db->get_where('getpesertadidik', ['peserta_didik_id'=>$decrypt['peserta_didik_id'], 'semester_id'=>$decrypt['semester_id']])->row_array();
