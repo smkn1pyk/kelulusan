@@ -60,6 +60,8 @@ class Auth extends CI_Controller {
 						}else{
 							?> <div style="background-color: yellow;padding: 10px; color: #aaa;"> Mohon maaf, Anda belum dapat mengakses halaman ini<br>Aplikasi ini masih dalam masa pengembangan </div> <?php
 						}
+					}else{
+						?> <div class="alert-danger"> User tidak ditemukan pada semester <?= $decrypt['semester_id'] ?> </div> <?php
 					}
 				}else{
 					$cekPtk = $this->db->get_where('getgtk', ['ptk_id'=>$decrypt['ptk_id'], 'tahun_ajaran_id'=>$decrypt['tahun_ajaran_id']])->row_array();
