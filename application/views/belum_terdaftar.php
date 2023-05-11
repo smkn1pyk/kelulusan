@@ -2,7 +2,7 @@
 	<div class="login">
 		<div class="row mb-3">
 			<div class="col-8">
-				<h3 class="text-center"><?= $this->session->userdata('nama'); ?></h3>
+				<h3><i class="fas fa-user"></i> <?= $this->session->userdata('nama'); ?></h3>
 			</div>
 			<div class="col text-end"><a href="<?= base_url('auth/keluar') ?>" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></div>
 		</div>
