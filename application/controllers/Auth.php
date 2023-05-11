@@ -49,9 +49,6 @@ class Auth extends CI_Controller {
 		if($this->input->post('akun')){
 			$decrypt = json_decode($this->encryption->decrypt($this->input->post('akun')), true);
 			if(is_array($decrypt)){
-				echo "<pre>";
-				print_r ($decrypt);
-				echo "</pre>";
 				if($decrypt['peserta_didik_id']){
 					$this->db->order_by('semester_id', 'desc');
 					$cekPd = $this->db->get_where('getpesertadidik', ['peserta_didik_id'=>$decrypt['peserta_didik_id'], 'semester_id'=>$decrypt['semester_id']])->row_array();
@@ -64,7 +61,7 @@ class Auth extends CI_Controller {
 							?> <div class="alert alert-warning"> Mohon maaf, Anda tidak dapat mengakses halaman ini<br>Aplikasi ini hanya untuk peserta didik tingkat akhir </div> <?php
 						}
 					}else{
-						?> <div class="alert alert-danger"> User: <?= $decrypt['username'] ?> tidak ditemukan pada tahun ajar <?= $decrypt['semester_id'] ?> </div> <?php
+						?> <div class="alert alert-danger">Biodata User: <b><?= $decrypt['username'] ?></b> tidak ditemukan pada tahun ajar <?= $decrypt['semester_id'] ?> </div> <?php
 					}
 				}else{
 					?> <div class="alert alert-warning"> Mohon maaf, Anda tidak dapat mengakses halaman ini<br>Aplikasi ini hanya ditujukan untuk Peserta Didik</div> <?php
