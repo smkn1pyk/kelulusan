@@ -11,6 +11,25 @@
 <body>
 	<div class="container">
 		<?php
+		// $bulan = [
+		// 	'01' => 'Januari',
+		// 	'02' => 'Februari',
+		// 	'03' => 'Maret',
+		// 	'04' => 'April',
+		// 	'05' => 'Mei',
+		// 	'06' => 'Juni',
+		// 	'07' => 'Juli',
+		// 	'08' => 'Agustus',
+		// 	'09' => 'September',
+		// 	'10' => 'Oktober',
+		// 	'11' => 'November',
+		// 	'12' => 'Desember'
+		// ];
+		// $x_tanggal_surat = explode('-', $lulusan['tanggal_surat']);
+		// $tanggal_tanggal_surat = $x_tanggal_surat[2];
+		// echo $bulan_tanggal_surat = $bulan[$x_tanggal_surat[1]];
+		// $tahun_tanggal_surat = $x_tanggal_surat[0];
+		// exit();
 		if($status){
 			?>
 			<div class="header">
@@ -108,7 +127,7 @@
 							echo "Tidak Lulus";
 						}
 						?>
-					</b> dari SMKN Negeri 1 Payakumbuh Tahun Pelajaran <?= date('Y')-1 ?>/<?= date('Y') ?></p>
+					</b> dari SMKN Negeri 1 Payakumbuh Tahun Pelajaran <?= date('Y', strtotime($lulusan['tanggal_surat']))-1 ?>/<?= date('Y', strtotime($lulusan['tanggal_surat'])) ?></p>
 					<p>Demikianlah surat keterangan Lulus ini dikeluarkan untuk digunakan sesuai keperluan</p>
 				</div>
 				<div class="ttd">

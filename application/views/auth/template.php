@@ -43,7 +43,7 @@
 		}
 		.login{
 			background-color: #fff;
-			width: 1000px;
+			width: 600px;
 			margin: auto;
 			padding: 20px;
 			border: 1px solid #ddd;
@@ -62,7 +62,7 @@
 				margin-top: 50px;
 			}
 			.login {
-				max-width: 80%;
+				max-width: 90%;
 				/*margin: 0;*/
 			}
 		}
