@@ -64,7 +64,7 @@ class Auth extends CI_Controller {
 							?> <div class="alert alert-warning"> Mohon maaf, Anda tidak dapat mengakses halaman ini<br>Aplikasi ini hanya untuk peserta didik tingkat akhir </div> <?php
 						}
 					}else{
-						?> <div class="alert alert-danger"> User tidak ditemukan pada semester <?= $decrypt['semester_id'] ?> </div> <?php
+						?> <div class="alert alert-danger"> User: <?= $decrypt['username'] ?> tidak ditemukan pada tahun ajar <?= $decrypt['semester_id'] ?> </div> <?php
 					}
 				}else{
 					?> <div class="alert alert-warning"> Mohon maaf, Anda tidak dapat mengakses halaman ini<br>Aplikasi ini hanya ditujukan untuk Peserta Didik</div> <?php
