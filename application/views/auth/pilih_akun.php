@@ -15,7 +15,7 @@
 				</select>
 			</div>
 
-			<div class="d-block">
+			<div class="d-block mb-3">
 				<div class="row">
 					<div class="col">
 						<button class="btn btn-primary"><i class="fas fa-check"></i> Pilih</button>
