@@ -49,7 +49,7 @@ class Auth extends CI_Controller {
 		if($this->input->post('akun')){
 			$decrypt = json_decode($this->encryption->decrypt($this->input->post('akun')), true);
 			if(is_array($decrypt)){
-				if($decrypt['peran_id_str']=='Peserta Didik'){
+				if($decrypt['peserta_didik_id']){
 					$this->db->order_by('semester_id', 'desc');
 					$cekPd = $this->db->get_where('getpesertadidik', ['peserta_didik_id'=>$decrypt['peserta_didik_id'], 'semester_id'=>$decrypt['semester_id']])->row_array();
 					if($cekPd){
@@ -58,20 +58,13 @@ class Auth extends CI_Controller {
 							$this->session->set_userdata( $merge );
 							echo '<script>window.location.href = "app";</script>';
 						}else{
-							?> <div style="background-color: yellow;padding: 10px; color: #aaa;"> Mohon maaf, Anda belum dapat mengakses halaman ini<br>Aplikasi ini masih dalam masa pengembangan </div> <?php
+							?> <div class="alert alert-warning"> Mohon maaf, Anda tidak dapat mengakses halaman ini<br>Aplikasi ini hanya untuk peserta didik tingkat akhir </div> <?php
 						}
 					}else{
 						?> <div class="alert alert-danger"> User tidak ditemukan pada semester <?= $decrypt['semester_id'] ?> </div> <?php
 					}
 				}else{
-					$cekPtk = $this->db->get_where('getgtk', ['ptk_id'=>$decrypt['ptk_id'], 'tahun_ajaran_id'=>$decrypt['tahun_ajaran_id']])->row_array();
-					if($cekPtk){
-						$merge = array_merge($decrypt, $cekPtk);
-						$this->session->set_userdata( $merge );
-						echo '<script>window.location.href = "app";</script>';
-					}else{
-						?> <div style="background-color: yellow;padding: 10px; color: #000;"> Mohon maaf, Anda belum dapat mengakses halaman ini<br>Biodata User dengan Email <?= $decrypt['username'] ?> tidak ditemukan </div> <?php
-					}
+					?> <div class="alert alert-warning"> Mohon maaf, Anda tidak dapat mengakses halaman ini<br>Aplikasi ini hanya ditujukan untuk Peserta Didik</div> <?php
 				}
 			}
 		}else{
