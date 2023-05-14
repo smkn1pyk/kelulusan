@@ -20,7 +20,7 @@
 		.header{
 			/*background-color: #fff;*/
 			text-align: center;
-			width: 550px;
+			width: 600px;
 			margin: auto;
 			/*border-bottom: 1px solid #ddd;*/
 		}
