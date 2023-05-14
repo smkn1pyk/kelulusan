@@ -32,6 +32,8 @@ class App extends CI_Controller {
 					$data = [
 						'title' => $this->session->userdata('nama'),
 						'siswa' => $this->session->all_userdata(),
+						'sekolah' => $this->db->get_where('getsekolah', ['semester_id'=>$this->session->userdata('semester_id')])->row_array(),
+						'kop_sekolah' => $this->db->get_where('kop_sekolah', ['semester_id'=>$this->session->userdata('semester_id')])->row_array(),
 						'rombel' => $this->db->get_where('getrombonganbelajar', ['rombongan_belajar_id'=>$this->session->userdata('rombongan_belajar_id')])->row_array(),
 						'lulusan' => $lulusan_pengaturan,
 						'status' => $status,

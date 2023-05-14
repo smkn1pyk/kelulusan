@@ -37,20 +37,57 @@
 					<button onclick="print();"><i class="fas fa-print"></i> Print</button>
 					<a href="<?= base_url('auth/keluar') ?>"><i class="fas fa-sign-out-alt"></i> Keluar</a>
 				</div>
-				<div class="header-kiri">
-					<img src="<?= base_url('assets/images/logo-prov.png') ?>" width="110px">
-				</div>
-				<div class="header-tengah">
-					<h3 class="m-0">PEMERINTAHAN PROVINSI SUMATERA BARAT</h3>
-					<H3 class="m-0">DINAS PENDIDIKAN</H3>
-					<h3 class="m-0">CABANG DINAS WILAYAH IV</h3>
-					<H2 class="m-0">SMK NEGERI 1 PAYAKUMBUH</H2>
-					<P class="m-0">Jalan ASOKA no.6 - Telp/Fax (0752) 92047</P>
-					<p class="m-0">E-Mail : smkn1pyk@gmail.com -  WEB : https://smkn1payakumbuh.sch.id - Kode Pos : 26225</p>
-				</div>
-				<div class="header-kanan">
-					<img src="<?= base_url('assets/images/logo.png') ?>" width="120px" class='mt-4'>
-				</div>
+				<?php
+				if($kop_sekolah){
+					?>
+					<div class="header-kiri">
+						<?= '<img src="data:image/jpeg;base64,'.base64_encode($kop_sekolah['logo_1']).'" width="110px"/>' ?>
+						<!-- <img src="<?= base_url('assets/images/logo-prov.png') ?>" width="110px"> -->
+					</div>
+					<div class="header-tengah">
+						<h3 class="m-0"><?= $kop_sekolah['header_1'] ?></h3>
+						<H3 class="m-0"><?= $kop_sekolah['header_2'] ?></H3>
+						<h3 class="m-0"><?= $kop_sekolah['header_3'] ?></h3>
+						<?php
+						if($sekolah){
+							?>
+							<h2 class="m-0"><?= $sekolah['nama'] ?></h2>
+							<p class="m-0"><?= $sekolah['alamat_jalan'] ?> - Telp/Fax <?= $sekolah['nomor_telepon'] ?></p>
+							<p class="m-0">E-Mail: <?= $sekolah['email'] ?> - Web: <?= $sekolah['website'] ?> - Kode Pos: <?= $sekolah['kode_pos'] ?></p>
+							<?php
+						}else{
+							?>
+							<H2 class="m-0">SMK NEGERI 1 PAYAKUMBUH</H2>
+							<P class="m-0">Jalan ASOKA no.6 - Telp/Fax (0752) 92047</P>
+							<p class="m-0">E-Mail : smkn1pyk@gmail.com -  WEB : https://smkn1payakumbuh.sch.id - Kode Pos : 26225</p>
+							<?php
+						}
+						?>
+					</div>
+					<div class="header-kanan align-middle">
+						<?= '<img src="data:image/jpeg;base64,'.base64_encode($kop_sekolah['logo_2']).'" width="110px"/>' ?>
+						<!-- <img src="<?= base_url('assets/images/logo.png') ?>" width="120px" class='mt-4'> -->
+					</div>
+					<?php
+				}else{
+					?>
+					<div class="header-kiri">
+						<img src="<?= base_url('assets/images/logo-prov.png') ?>" width="110px">
+					</div>
+					<div class="header-tengah">
+						<h3 class="m-0">PEMERINTAHAN PROVINSI SUMATERA BARAT</h3>
+						<H3 class="m-0">DINAS PENDIDIKAN</H3>
+						<h3 class="m-0">CABANG DINAS WILAYAH IV</h3>
+						<H2 class="m-0">SMK NEGERI 1 PAYAKUMBUH</H2>
+						<P class="m-0">Jalan ASOKA no.6 - Telp/Fax (0752) 92047</P>
+						<p class="m-0">E-Mail : smkn1pyk@gmail.com -  WEB : https://smkn1payakumbuh.sch.id - Kode Pos : 26225</p>
+					</div>
+					<div class="header-kanan">
+						<img src="<?= base_url('assets/images/logo.png') ?>" width="120px" class='mt-4'>
+					</div>
+					<?php
+				}
+				?>
 			</div>
 
 			<div class="judul">

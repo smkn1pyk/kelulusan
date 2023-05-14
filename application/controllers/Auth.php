@@ -26,7 +26,7 @@ class Auth extends CI_Controller {
 								$this->session->set_userdata( $merge );
 								echo '<script>window.location.href = ".";</script>';
 							}else{
-								?> <div class="alert alert-warning"> Mohon maaf, anda tidak dapat mengakse aplikasi ini,<br>Aplikasi ini hanya ditujukan untuk Peserta Didik tingkat akhir </div> <?php
+								?> <div class="alert alert-warning"> Mohon maaf, anda tidak dapat mengakses aplikasi ini,<br>Aplikasi ini ditujukan hanya untuk Peserta Didik tingkat akhir </div> <?php
 							}
 						}else{
 							?> <div class="alert alert-warning">Mohon maaf, sistem tidak menemukan biodata anda, silahkan menghubungi Operator Sekolah</div> <?php
