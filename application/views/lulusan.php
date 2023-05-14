@@ -172,7 +172,14 @@
 						Dikeluarkan di : Payakumbuh<br>
 						Pada Tanggal   : <?= date('d-M-Y', strtotime($lulusan['tanggal_surat'])) ?><br>
 						Kepala<br>
-						<img src="<?= base_url('assets/images/ttd.png') ?>" width="270px" class='ml-0'>
+						<?php
+						if($kop_sekolah){
+							echo '<img src="data:image/jpeg;base64,'.base64_encode($kop_sekolah['ttd']).'" width="270px"/>';
+						}else{
+							?> <img src="<?= base_url('assets/images/ttd.png') ?>" width="270px" class='ml-0'> <?php	
+						}
+						?>
+
 					</div>
 				</div>
 				<div class="ctt">
