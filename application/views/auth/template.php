@@ -20,6 +20,8 @@
 		.header{
 			/*background-color: #fff;*/
 			text-align: center;
+			width: 550px;
+			margin: auto;
 			/*border-bottom: 1px solid #ddd;*/
 		}
 
@@ -43,7 +45,7 @@
 		}
 		.login{
 			background-color: #fff;
-			width: 600px;
+			width: 400px;
 			margin: auto;
 			padding: 20px;
 			border: 1px solid #ddd;
@@ -60,6 +62,9 @@
 		@media only screen and (max-width: 600px) {
 			.container{
 				margin-top: 50px;
+			}
+			.header{
+				width: 90%;
 			}
 			.login {
 				max-width: 90%;
